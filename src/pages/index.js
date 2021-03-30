@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { Header } from '../components/Header';
 
 export default function Home() {
     return (
@@ -34,6 +35,10 @@ export default function Home() {
                 <meta name="msapplication-TileColor" content="#00aba9" />
                 <meta name="theme-color" content="#158e84" />
             </Head>
+
+            <header>
+                <Header>This is the header </Header>
+            </header>
 
             <main>
                 Welcome to Octetlet!
