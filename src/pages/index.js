@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Header from '@components/Header';
-import SiteIcons from '@components/SiteIcons';
+import SiteIcons from '@components/SiteIcons.js';
 
 export default function Home() {
     return (
