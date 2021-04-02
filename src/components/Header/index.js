@@ -1,6 +1,9 @@
 import styled from 'styled-components';
+import { primaryBackground } from '@styles/mixins.js';
 
-export const Header = styled.div`
-    background: ${(props) => props.theme.palette.primary};
+const Header = styled.div`
+    ${primaryBackground}
     padding: 1em;
 `;
+
+export default Header;
