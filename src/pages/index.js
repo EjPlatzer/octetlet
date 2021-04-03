@@ -15,10 +15,7 @@ export default function Home() {
                 <Header>This is the header </Header>
             </header>
 
-            <main>
-                Welcome to Octetlet!
-                <Image src="/octetlet-loader.svg" height={30} width={30} />
-            </main>
+            <main>Welcome to Octetlet!</main>
 
             <footer>
                 <a
