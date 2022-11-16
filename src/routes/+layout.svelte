@@ -1,8 +1,22 @@
+<script lang="ts">
+	import { page } from '$app/stores';
+
+	const routes = [
+		{ route: '/', name: 'Home' },
+		{ route: '/about', name: 'About' }
+	];
+
+	console.log($page);
+</script>
+
+<svelte:head><title>Octetlet</title></svelte:head>
+
 <header>
 	<img alt="" src="/images/octetlet-logo.svg" height={50} width={50} />
 	<nav>
-		<a href="/">Home</a>
-		<a href="/about">About</a>
+		{#each routes as { route, name }}
+			<a href={route} class={$page.route.id === route ? 'active' : ''}>{name}</a>
+		{/each}
 	</nav>
 </header>
 
@@ -19,6 +33,9 @@
 		--theme-error: #e44c65;
 		--theme-background: #333333;
 		--theme-text: #f6f7fc;
+		background-color: var(--theme-background);
+		font-family: sans-serif;
+		color: var(--theme-text);
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
@@ -43,5 +60,26 @@
 
 	main {
 		padding-inline: 1rem;
+	}
+
+	nav {
+		display: flex;
+		gap: 1rem;
+	}
+
+	a {
+		color: var(--theme-text);
+		text-decoration: none;
+		font-size: 1.5rem;
+		transition: all 200ms;
+	}
+
+	a:hover {
+		text-decoration: underline;
+		color: rgb(200, 200, 200);
+	}
+
+	a.active {
+		text-decoration: underline;
 	}
 </style>
