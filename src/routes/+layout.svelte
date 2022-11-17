@@ -1,23 +1,38 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { SvelteToast, toast } from '@zerodevx/svelte-toast';
 
 	const routes = [
 		{ route: '/', name: 'Home' },
 		{ route: '/about', name: 'About' }
 	];
-
-	console.log($page);
 </script>
+
+<SvelteToast />
 
 <svelte:head><title>Octetlet</title></svelte:head>
 
 <header>
-	<img alt="" src="/images/octetlet-logo.svg" height={50} width={50} />
-	<nav>
-		{#each routes as { route, name }}
-			<a href={route} class={$page.route.id === route ? 'active' : ''}>{name}</a>
-		{/each}
-	</nav>
+	<div class="header_links">
+		<img alt="" src="/images/octetlet-logo.svg" height={50} width={50} />
+		<nav>
+			{#each routes as { route, name }}
+				<a href={route} class={$page.route.id === route ? 'active' : ''}>{name}</a>
+			{/each}
+		</nav>
+	</div>
+	<div class="header_actions">
+		<button
+			type="button"
+			class="primary"
+			on:click={() => toast.push('Login is not yet implemented')}>Login</button
+		>
+		<button
+			type="button"
+			class="secondary"
+			on:click={() => toast.push('Sign Up is not yet implemented')}>Sign Up</button
+		>
+	</div>
 </header>
 
 <main>
@@ -28,11 +43,18 @@
 
 <style>
 	:global(body) {
+		/* Theme colors */
 		--theme-primary: #158e84;
 		--theme-secondary: #9ccc66;
 		--theme-error: #e44c65;
 		--theme-background: #333333;
 		--theme-text: #f6f7fc;
+
+		/* Toast settings */
+		--toastBackground: var(--theme-secondary);
+		--toastBarHeight: 0;
+
+		/* body styles */
 		background-color: var(--theme-background);
 		font-family: sans-serif;
 		color: var(--theme-text);
@@ -62,6 +84,18 @@
 		padding-inline: 1rem;
 	}
 
+	.header_links {
+		display: flex;
+		gap: 2rem;
+		align-items: center;
+	}
+
+	.header_actions {
+		display: flex;
+		gap: 2rem;
+		align-items: center;
+	}
+
 	nav {
 		display: flex;
 		gap: 1rem;
@@ -76,10 +110,41 @@
 
 	a:hover {
 		text-decoration: underline;
-		color: rgb(200, 200, 200);
+		filter: brightness(85%);
 	}
 
 	a.active {
+		filter: brightness(85%);
 		text-decoration: underline;
+		cursor: default;
+	}
+
+	button {
+		appearance: none;
+		/* border: 1px solid var(--theme-background); */
+		border: none;
+		border-radius: 6px;
+		/* box-shadow: rgb(27 31 35 / 10%) 0 1px 0; */
+		box-sizing: border-box;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 1rem;
+		padding: 0.5rem 1rem;
+		user-select: none;
+		touch-action: manipulation;
+	}
+
+	.primary {
+		background-color: var(--theme-primary);
+		color: var(--theme-text);
+	}
+
+	.secondary {
+		background-color: var(--theme-secondary);
+		color: var(--theme-background);
+	}
+
+	button:hover {
+		filter: brightness(85%);
 	}
 </style>
