@@ -62,17 +62,22 @@ l-122 5 -1 -74 c-3 -98 -25 -190 -69 -286 -20 -43 -33 -81 -29 -85 4 -4 100
 			/>
 		</g>
 	</svg>
+	CTETLET
 </a>
 
 <style>
 	a {
+		color: var(--theme-brand);
+		font-size: 2rem;
 		text-decoration: none;
-		display: inline;
+		display: flex;
+		align-items: center;
+		gap: 3px;
 	}
 
 	svg {
-		max-width: 50px;
-		max-height: 50px;
+		max-width: 2rem;
+		max-height: 2rem;
 	}
 
 	g {
