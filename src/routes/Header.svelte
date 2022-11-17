@@ -78,21 +78,6 @@
 		cursor: default;
 	}
 
-	button {
-		appearance: none;
-		/* border: 1px solid var(--theme-background); */
-		border: none;
-		border-radius: 6px;
-		/* box-shadow: rgb(27 31 35 / 10%) 0 1px 0; */
-		box-sizing: border-box;
-		cursor: pointer;
-		display: inline-block;
-		font-size: 1rem;
-		padding: 0.5rem 1rem;
-		user-select: none;
-		touch-action: manipulation;
-	}
-
 	.primary {
 		background-color: var(--theme-primary);
 		color: var(--theme-text);
