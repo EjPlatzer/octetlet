@@ -1,22 +1,30 @@
 <script lang="ts">
-	import Logo from '$lib/assets/Logo.svelte';
+	import Logo from '../assets/Logo.svelte';
 	import { page } from '$app/stores';
-	import { SvelteToast, toast } from '@zerodevx/svelte-toast';
+	import { toast } from '@zerodevx/svelte-toast';
+	import { useMediaQuery } from '../stores/useMediaQuery';
+	import MobileMenuLogo from '../assets/MobileMenuLogo.svelte';
 
 	const routes = [
 		{ route: '/', name: 'Home' },
 		{ route: '/about', name: 'About' }
 	];
+
+	const isLargeScreen = useMediaQuery('(min-width: 650px)');
 </script>
 
 <header>
 	<div class="header_links">
-		<Logo />
-		<nav>
-			{#each routes as { route, name }}
-				<a href={route} class={$page.route.id === route ? 'active' : ''}>{name}</a>
-			{/each}
-		</nav>
+		{#if $isLargeScreen}
+			<Logo />
+			<nav>
+				{#each routes as { route, name }}
+					<a href={route} class={$page.route.id === route ? 'active' : ''}>{name}</a>
+				{/each}
+			</nav>
+		{:else}
+			<MobileMenuLogo />
+		{/if}
 	</div>
 	<div class="header_actions">
 		<button type="button" on:click={() => toast.push('Login is not yet implemented')}>Login</button>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { SvelteToast } from '@zerodevx/svelte-toast';
-	import Header from './Header.svelte';
+	import Header from '../lib/components/Header.svelte';
 </script>
 
 <SvelteToast />
