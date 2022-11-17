@@ -1,19 +1,24 @@
 body {
 	/* Theme colors */
-	--theme-primary: #158e84;
-	--theme-secondary: #9ccc66;
-	--theme-error: #e44c65;
-	--theme-background: #333333;
-	--theme-text: #f6f7fc;
+	--theme-brand: #2fbab2;
+	--theme-light-accent: #79becc;
+	--theme-dark-accent: #7d7562;
+	--theme-dark-shades: #303746;
+	--theme-light-shades: #f5eef4;
+	--theme-info: #303746;
+	--theme-success: #42b26e;
+	--theme-warning: #c0a236;
+	--theme-danger: #f44336;
 
 	/* Toast settings */
-	--toastBackground: var(--theme-secondary);
+	--toastBackground: var(--theme-light-accent);
+	--toastColor: var(--theme-dark-shades);
 	--toastBarHeight: 0;
 
 	/* body styles */
-	background-color: var(--theme-background);
+	background-color: var(--theme-dark-shades);
 	font-family: sans-serif;
-	color: var(--theme-text);
+	color: var(--theme-light-shades);
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;

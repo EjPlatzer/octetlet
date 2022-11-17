@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Logo from '$lib/assets/Logo.svelte';
 	import { page } from '$app/stores';
 	import { SvelteToast, toast } from '@zerodevx/svelte-toast';
 
@@ -10,7 +11,7 @@
 
 <header>
 	<div class="header_links">
-		<img alt="" src="/images/octetlet-logo.svg" height={50} width={50} />
+		<Logo />
 		<nav>
 			{#each routes as { route, name }}
 				<a href={route} class={$page.route.id === route ? 'active' : ''}>{name}</a>
@@ -18,14 +19,10 @@
 		</nav>
 	</div>
 	<div class="header_actions">
+		<button type="button" on:click={() => toast.push('Login is not yet implemented')}>Login</button>
 		<button
 			type="button"
 			class="primary"
-			on:click={() => toast.push('Login is not yet implemented')}>Login</button
-		>
-		<button
-			type="button"
-			class="secondary"
 			on:click={() => toast.push('Sign Up is not yet implemented')}>Sign Up</button
 		>
 	</div>
@@ -33,8 +30,8 @@
 
 <style>
 	header {
-		background-color: var(--theme-primary);
-		color: var(--theme-text);
+		background-color: var(--theme-dark-shades);
+		color: var(--theme-light-shades);
 		padding: 1em;
 		display: flex;
 		flex-direction: row;
@@ -61,7 +58,7 @@
 	}
 
 	a {
-		color: var(--theme-text);
+		color: var(--theme-light-shades);
 		text-decoration: none;
 		font-size: 1.5rem;
 		transition: all 200ms;
@@ -78,14 +75,14 @@
 		cursor: default;
 	}
 
-	.primary {
-		background-color: var(--theme-primary);
-		color: var(--theme-text);
+	button {
+		background-color: var(--theme-dark-shades);
+		color: var(--theme-light-shades);
 	}
 
-	.secondary {
-		background-color: var(--theme-secondary);
-		color: var(--theme-background);
+	.primary {
+		background-color: var(--theme-brand);
+		color: var(--theme-dark-shades);
 	}
 
 	button:hover {
