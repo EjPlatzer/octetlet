@@ -11,13 +11,15 @@
 	];
 
 	const isLargeScreen = useMediaQuery('(min-width: 650px)');
+
+	export let menuOpen = false;
 </script>
 
 <header>
 	<div class="header_links">
 		{#if $isLargeScreen}
 			<a href="/" class="logo">
-			<Logo />
+				<Logo />
 			</a>
 			<nav>
 				{#each routes as { route, name }}
@@ -25,7 +27,9 @@
 				{/each}
 			</nav>
 		{:else}
-			<MobileMenuLogo />
+			<button aria-expanded="false" class="icon-button" on:click={() => (menuOpen = !menuOpen)}>
+				<MobileMenuLogo />
+			</button>
 		{/if}
 	</div>
 	<div class="header_actions">
@@ -40,6 +44,8 @@
 
 <style>
 	header {
+		position: sticky;
+		z-index: 1;
 		background-color: var(--theme-dark-shades);
 		color: var(--theme-light-shades);
 		padding: 1em;
