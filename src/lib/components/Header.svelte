@@ -6,7 +6,7 @@
 	import MobileMenuLogo from '../assets/MobileMenuLogo.svelte';
 
 	const routes = [
-		{ route: '/', name: 'Home' },
+		{ route: '/demo', name: 'Demo' },
 		{ route: '/about', name: 'About' }
 	];
 
@@ -16,7 +16,9 @@
 <header>
 	<div class="header_links">
 		{#if $isLargeScreen}
+			<a href="/" class="logo">
 			<Logo />
+			</a>
 			<nav>
 				{#each routes as { route, name }}
 					<a href={route} class={$page.route.id === route ? 'active' : ''}>{name}</a>
@@ -52,6 +54,15 @@
 		display: flex;
 		gap: 2rem;
 		align-items: center;
+	}
+
+	.logo {
+		color: var(--theme-brand);
+		font-size: 2rem;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		gap: 3px;
 	}
 
 	.header_actions {

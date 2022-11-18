@@ -28,6 +28,7 @@ body {
 	height: 100vh;
 	display: grid;
 	grid-template-rows: auto 1fr auto;
+	accent-color: var(--theme-brand);
 }
 
 button {
