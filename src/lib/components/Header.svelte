@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Logo from '../assets/Logo.svelte';
+	import Logo from './Logo.svelte';
 	import { page } from '$app/stores';
 	import { toast } from '@zerodevx/svelte-toast';
-	import { useMediaQuery } from '../stores/useMediaQuery';
-	import MobileMenuLogo from '../assets/MobileMenuLogo.svelte';
+	import { useMediaQuery } from '$lib/stores/useMediaQuery';
+	import MobileMenuLogo from './MobileMenuLogo.svelte';
 
 	const routes = [
 		{ route: '/demo', name: 'Demo' },
