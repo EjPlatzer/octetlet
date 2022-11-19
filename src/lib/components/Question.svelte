@@ -8,7 +8,7 @@
 	<legend>{question.label}</legend>
 	<div class="answers">
 		{#each question.answers as answer}
-			<input type="radio" name={question.id} id={answer.id} />
+			<input type="radio" name={question.id} id={answer.id} value={answer.id} />
 			<label for={answer.id}>{answer.label}</label>
 		{/each}
 	</div>
