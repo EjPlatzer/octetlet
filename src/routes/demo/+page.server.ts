@@ -1,4 +1,4 @@
-import { getXataClient, type AnswerRecord, type QuestionRecord } from '$lib/xata';
+import { getXataClient, type AnswerRecord, type QuestionRecord } from '$lib/server/xata';
 import type { SelectedPick } from '@xata.io/client';
 import type { Actions, PageServerLoad } from './$types';
 
@@ -16,7 +16,7 @@ export const load: PageServerLoad = async () => {
 		.select(['label'])
 		.getAll();
 
-	return {questions: [{ ...question, answers }]};
+	return { questions: [{ ...question, answers }] };
 };
 
 export const actions: Actions = {
