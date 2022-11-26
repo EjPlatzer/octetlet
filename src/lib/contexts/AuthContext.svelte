@@ -15,6 +15,8 @@
 </script>
 
 <script lang="ts">
+	console.log(import.meta.env);
+
 	const client = new Auth0Client({
 		domain: import.meta.env.VITE_AUTH0_DOMAIN,
 		clientId: import.meta.env.VITE_AUTH0_CLIENT_ID
