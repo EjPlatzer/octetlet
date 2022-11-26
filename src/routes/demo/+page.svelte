@@ -22,3 +22,15 @@
 		<p>Wrong. Too bad :(</p>
 	{/if}
 {/if}
+
+<style>
+	form {
+		display: grid;
+		gap: 1rem;
+	}
+
+	button {
+		background-color: var(--theme-brand);
+		color: var(--theme-dark-shades);
+	}
+</style>

@@ -42,4 +42,5 @@ button {
 	padding: 0.5rem 1rem;
 	user-select: none;
 	touch-action: manipulation;
+	font-weight: bold;
 }
