@@ -1,23 +1,26 @@
 <script lang="ts">
 	import Sidebar from '$lib/components/Sidebar.svelte';
+	import AuthContext from '$lib/contexts/AuthContext.svelte';
 	import { SvelteToast } from '@zerodevx/svelte-toast';
 	import Header from '../lib/components/Header.svelte';
 
 	let sidebarOpen = false;
 </script>
 
-<SvelteToast />
-
 <svelte:head><title>Octetlet</title></svelte:head>
 
-<Header bind:menuOpen={sidebarOpen} />
-<Sidebar bind:open={sidebarOpen} />
+<AuthContext>
+	<SvelteToast />
 
-<main>
-	<slot />
-</main>
+	<Header bind:menuOpen={sidebarOpen} />
+	<Sidebar bind:open={sidebarOpen} />
 
-<footer>Footer</footer>
+	<main>
+		<slot />
+	</main>
+
+	<footer>Footer</footer>
+</AuthContext>
 
 <style>
 	main {

@@ -1,18 +1,32 @@
 <script lang="ts">
+	import { getContext } from 'svelte';
 	import Logo from './Logo.svelte';
 	import { page } from '$app/stores';
-	import { toast } from '@zerodevx/svelte-toast';
 	import { useMediaQuery } from '$lib/stores/useMediaQuery';
 	import MobileMenuLogo from './MobileMenuLogo.svelte';
+	import { authKey } from '$lib/auth';
+	import { isAuthenticated, user, type AuthContext } from '$lib/contexts/AuthContext.svelte';
+	import type { Readable } from 'svelte/store';
 
 	const routes = [
 		{ route: '/demo', name: 'Demo' },
 		{ route: '/about', name: 'About' }
 	];
 
+	const auth = getContext<Readable<AuthContext>>(authKey);
+
 	const isLargeScreen = useMediaQuery('(min-width: 650px)');
 
 	export let menuOpen = false;
+
+	const login = () =>
+		$auth.login({
+			authorizationParams: {
+				redirect_uri: window.location.origin
+			}
+		});
+
+	const logout = () => $auth.logout();
 </script>
 
 <header>
@@ -32,14 +46,14 @@
 			</button>
 		{/if}
 	</div>
-	<div class="header_actions">
-		<button type="button" on:click={() => toast.push('Login is not yet implemented')}>Login</button>
-		<button
-			type="button"
-			class="primary"
-			on:click={() => toast.push('Sign Up is not yet implemented')}>Sign Up</button
-		>
-	</div>
+	{#if $isAuthenticated}
+		<img src={$user?.picture} alt={$user?.nickname} class="avatar" on:click={logout} />
+	{:else}
+		<div class="header_actions">
+			<button type="button" on:click={login}>Login</button>
+			<button type="button" class="primary">Sign Up</button>
+		</div>
+	{/if}
 </header>
 
 <style>
@@ -112,5 +126,11 @@
 
 	button:hover {
 		filter: brightness(85%);
+	}
+
+	.avatar {
+		height: 50px;
+		width: 50px;
+		border-radius: 100%;
 	}
 </style>
