@@ -1,4 +1,4 @@
-body {
+:root {
 	/* Theme colors */
 	--theme-brand: #2fbab2;
 	--theme-light-accent: #79becc;
@@ -9,7 +9,16 @@ body {
 	--theme-success: #42b26e;
 	--theme-warning: #c0a236;
 	--theme-danger: #f44336;
+	font-family: 'Inter', sans-serif;
+}
 
+@supports (font-variation-settings: normal) {
+	:root {
+		font-family: 'Inter var', sans-serif;
+	}
+}
+
+body {
 	/* Toast settings */
 	--toastBackground: var(--theme-light-accent);
 	--toastColor: var(--theme-dark-shades);
@@ -17,7 +26,6 @@ body {
 
 	/* body styles */
 	background-color: var(--theme-dark-shades);
-	font-family: sans-serif;
 	color: var(--theme-light-shades);
 	margin: 0;
 	padding: 0;
