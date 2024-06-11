@@ -9,6 +9,7 @@
 	--theme-success: #42b26e;
 	--theme-warning: #c0a236;
 	--theme-danger: #f44336;
+	accent-color: var(--theme-brand);
 	font-family: 'Inter', sans-serif;
 }
 
@@ -32,12 +33,6 @@ body {
 	box-sizing: border-box;
 }
 
-#root {
-	height: 100vh;
-	display: grid;
-	grid-template-rows: auto 1fr auto;
-	accent-color: var(--theme-brand);
-}
 
 button {
 	appearance: none;

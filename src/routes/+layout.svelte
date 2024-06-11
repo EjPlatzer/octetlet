@@ -12,17 +12,25 @@
 <AuthContext>
 	<SvelteToast />
 
-	<Header bind:menuOpen={sidebarOpen} />
-	<Sidebar bind:open={sidebarOpen} />
+	<div class="container">
+		<Header bind:menuOpen={sidebarOpen} />
+		<Sidebar bind:open={sidebarOpen} />
 
-	<main>
-		<slot />
-	</main>
+		<main>
+			<slot />
+		</main>
 
-	<footer>Footer</footer>
+		<footer>Footer</footer>
+	</div>
 </AuthContext>
 
 <style>
+	.container {
+		height: 100svh;
+		display: grid;
+		grid-template-rows: auto 1fr auto;
+	}
+
 	main {
 		padding-inline: 1rem;
 	}
